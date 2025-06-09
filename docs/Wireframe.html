@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NextGenWill - User Flow Wireframes</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <style>
+        .screen { display: none; }
+        .screen.active { display: block; }
+        .typing-effect {
+            border-right: 2px solid #3b82f6;
+            animation: blink 1s infinite;
+        }
+        @keyframes blink {
+            0%, 50% { border-color: #3b82f6; }
+            51%, 100% { border-color: transparent; }
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- Navigation -->
+    <div class="fixed top-0 left-0 right-0 bg-white shadow-sm z-50">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="text-2xl font-bold text-blue-600">NextGenWill</div>
+            <div class="flex gap-4">
+                <button onclick="showScreen('landing')" class="px-4 py-2 text-sm bg-gray-100 rounded hover:bg-gray-200 transition-colors">Landing</button>
+                <button onclick="showScreen('onboarding')" class="px-4 py-2 text-sm bg-gray-100 rounded hover:bg-gray-200 transition-colors">Onboarding</button>
+                <button onclick="showScreen('assets')" class="px-4 py-2 text-sm bg-gray-100 rounded hover:bg-gray-200 transition-colors">Assets</button>
+                <button onclick="showScreen('crypto')" class="px-4 py-2 text-sm bg-gray-100 rounded hover:bg-gray-200 transition-colors">Crypto</button>
+                <button onclick="showScreen('beneficiaries')" class="px-4 py-2 text-sm bg-gray-100 rounded hover:bg-gray-200 transition-colors">Beneficiaries</button>
+                <button onclick="showScreen('preview')" class="px-4 py-2 text-sm bg-gray-100 rounded hover:bg-gray-200 transition-colors">Preview</button>
+                <button onclick="showScreen('payment')" class="px-4 py-2 text-sm bg-gray-100 rounded hover:bg-gray-200 transition-colors">Payment</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="pt-16">
+        <!-- Screen 1: Landing Page -->
+        <div id="landing" class="screen active">
+            <div class="min-h-screen bg-gradient-to-br from-blue-600 via-purple-600 to-teal-600">
+                <div class="max-w-6xl mx-auto px-4 py-16">
+                    <div class="text-center text-white mb-16">
+                        <h1 class="text-6xl font-bold mb-6">Estate Planning That Actually<br><span class="text-yellow-300">Gets Your Digital Life</span></h1>
+                        <p class="text-xl opacity-90 max-w-3xl mx-auto mb-8">Finally, a will that understands crypto wallets, cloud storage, and digital assets. Built for the generation that lives online.</p>
+                        <div class="flex gap-6 justify-center text-lg mb-12">
+                            <div class="flex items-center gap-2">
+                                <i data-lucide="check-circle" class="w-6 h-6 text-green-300"></i>
+                                <span>90% Cheaper: $49 vs $1,500+ lawyer fees</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i data-lucide="check-circle" class="w-6 h-6 text-green-300"></i>
+                                <span>95% Faster: 15 minutes vs weeks</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i data-lucide="check-circle" class="w-6 h-6 text-green-300"></i>
+                                <span>100% Digital: Crypto, cloud, social covered</span>
+                            </div>
+                        </div>
+                        <button onclick="showScreen('onboarding')" class="bg-yellow-400 text-black px-8 py-4 text-xl font-semibold rounded-xl hover:bg-yellow-300 transition-all transform hover:scale-105 shadow-lg">
+                            Create Your Digital Will in 15 Minutes
+                        </button>
+                        <p class="text-sm opacity-75 mt-4">Join 10,000+ digital natives who've taken control</p>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-3 gap-8 text-white">
+                        <div class="bg-white/10 backdrop-blur-lg rounded-xl p-6">
+                            <i data-lucide="brain" class="w-12 h-12 text-yellow-300 mb-4"></i>
+                            <h3 class="text-xl font-semibold mb-3">AI-Powered Guidance</h3>
+                            <p class="opacity-90">Conversational AI explains legal concepts in plain English, no confusing jargon.</p>
+                        </div>
+                        <div class="bg-white/10 backdrop-blur-lg rounded-xl p-6">
+                            <i data-lucide="bitcoin" class="w-12 h-12 text-yellow-300 mb-4"></i>
+                            <h3 class="text-xl font-semibold mb-3">Crypto Native</h3>
+                            <p class="opacity-90">Built-in support for Bitcoin, Ethereum, NFTs, and hardware wallets.</p>
+                        </div>
+                        <div class="bg-white/10 backdrop-blur-lg rounded-xl p-6">
+                            <i data-lucide="shield-check" class="w-12 h-12 text-yellow-300 mb-4"></i>
+                            <h3 class="text-xl font-semibold mb-3">Bank-Level Security</h3>
+                            <p class="opacity-90">AES-256 encryption with emergency access protocols for your family.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Screen 2: AI Onboarding -->
+        <div id="onboarding" class="screen">
+            <div class="min-h-screen bg-gray-50 py-8">
+                <div class="max-w-4xl mx-auto px-4">
+                    <div class="text-center mb-8">
+                        <h2 class="text-3xl font-bold text-gray-800 mb-2">Let's Create Your Digital Will</h2>
+                        <p class="text-gray-600">I'll guide you through this step-by-step. This usually takes about 15 minutes.</p>
+                        <div class="w-full bg-gray-200 rounded-full h-2 mt-4">
+                            <div class="bg-blue-600 h-2 rounded-full" style="width: 10%"></div>
+                        </div>
+                        <p class="text-sm text-gray-500 mt-2">Step 1 of 6 • About 2 minutes remaining</p>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-lg p-8">
+                        <div class="space-y-6">
+                            <!-- AI Assistant Avatar -->
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                                    <i data-lucide="bot" class="w-6 h-6 text-blue-600"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <div class="bg-blue-50 rounded-xl p-4 mb-4">
+                                        <p class="text-gray-800">Hi! I'm your AI estate planning assistant. I'm here to make this process as simple as possible. Let's start with the basics.</p>
+                                    </div>
+                                    <div class="bg-blue-50 rounded-xl p-4">
+                                        <p class="text-gray-800">What's your name, and what state do you live in? This helps me understand which laws apply to your will.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- User Input -->
+                            <div class="space-y-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
+                                    <input type="text" placeholder="Enter your full legal name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">State</label>
+                                    <select class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                                        <option>Select your state</option>
+                                        <option>California</option>
+                                        <option>New York</option>
+                                        <option>Texas</option>
+                                        <option>Florida</option>
+                                        <option>Illinois</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Continue Button -->
+                            <div class="text-right">
+                                <button onclick="showNextQuestion()" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors">
+                                    Continue <i data-lucide="arrow-right" class="w-4 h-4 inline ml-2"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Stats -->
+                    <div class="grid md:grid-cols-3 gap-4 mt-8 text-center">
+                        <div class="bg-white rounded-lg p-4 shadow">
+                            <div class="text-2xl font-bold text-blue-600">15 min</div>
+                            <div class="text-sm text-gray-600">Average completion time</div>
+                        </div>
+                        <div class="bg-white rounded-lg p-4 shadow">
+                            <div class="text-2xl font-bold text-green-600">$49</div>
+                            <div class="text-sm text-gray-600">vs $1,500+ with lawyers</div>
+                        </div>
+                        <div class="bg-white rounded-lg p-4 shadow">
+                            <div class="text-2xl font-bold text-purple-600">50+</div>
+                            <div class="text-sm text-gray-600">Digital asset types supported</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Screen 3: Digital Assets Discovery -->
+        <div id="assets" class="screen">
+            <div class="min-h-screen bg-gray-50 py-8">
+                <div class="max-w-4xl mx-auto px-4">
+                    <div class="text-center mb-8">
+                        <h2 class="text-3xl font-bold text-gray-800 mb-2">Let's Discover Your Digital Assets</h2>
+                        <p class="text-gray-600">Most people have more digital assets than they realize. Let's make sure we don't miss anything.</p>
+                        <div class="w-full bg-gray-200 rounded-full h-2 mt-4">
+                            <div class="bg-blue-600 h-2 rounded-full" style="width: 40%"></div>
+                        </div>
+                        <p class="text-sm text-gray-500 mt-2">Step 3 of 6 • About 8 minutes remaining</p>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <!-- Cryptocurrency -->
+                        <div class="bg-white rounded-xl shadow-lg p-6">
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center">
+                                    <i data-lucide="bitcoin" class="w-6 h-6 text-orange-600"></i>
+                                </div>
+                                <h3 class="text-xl font-semibold">Cryptocurrency</h3>
+                            </div>
+                            <div class="space-y-3">
+                                <label class="flex items-center gap-3 p-3 border rounded-lg hover:bg-gray-50 cursor-pointer">
+                                    <input type="checkbox" class="w-5 h-5 text-blue-600">
+                                    <span>Bitcoin (BTC)</span>
+                                </label>
+                                <label class="flex items-center gap-3 p-3 border rounded-lg hover:bg-gray-50 cursor-pointer">
+                                    <input type="checkbox" class="w-5 h-5 text-blue-600">
+                                    <span>Ethereum (ETH)</span>
+                                </label>
+                                <label class="flex items-center gap-3 p-3 border rounded-lg hover:bg-gray-50 cursor-pointer">
+                                    <input type="checkbox" class="w-5 h-5 text-blue-600">
+                                    <span>Other cryptocurrencies</span>
+                                </label>
+                                <button onclick="showScreen('crypto')" class="w-full mt-4 bg-orange-500 text-white py-2 rounded-lg hover:bg-orange-600 transition-colors">
+                                    Set Up Crypto Inheritance
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Cloud Storage -->
+                        <div class="bg-white rounded-xl shadow-lg p-6">
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
+                                    <i data-lucide="cloud" class="w-6 h-6 text-blue-600"></i>
+                                </div>
+                                <h3 class="text-xl font-semibold">Cloud Storage</h3>
+                            </div>
+                            <div class="space-y-3">
+                                <label class="flex items-center gap-3 p-3 border rounded-lg hover:bg-gray-50 cursor-pointer">
+                                    <input type="checkbox" class="w-5 h-5 text-blue-600">
+                                    <span>Google Drive</span>
+                                </label>
+                                <label class="flex items-center gap-3 p-3 border rounded-lg hover:bg-gray-50 cursor-pointer">
+                                    <input type="checkbox" class="w-5 h-5 text-blue-600">
+                                    <span>Dropbox</span>
+                                </label>
+                                <label class="flex items-center gap-3 p-3 border rounded-lg hover:bg-gray-50 cursor-pointer">
+                                    <input type="checkbox" class="w-5 h-5 text-blue-600">
+                                    <span>iCloud</span>
+                                </label>
+                                <button class="w-full mt-4 bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition-colors">
+                                    Connect Accounts
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Social Media -->
+                        <div class="bg-white rounded-xl shadow-lg p-6">
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="w-10 h-10 bg-pink-100 rounded-lg flex items-center justify-center">
+                                    <i data-lucide="users" class="w-6 h-6 text-pink-600"></i>
+                                </div>
+                                <h3 class="text-xl font-semibold">Social Media</h3>
+                            </div>
+                            <div class="space-y-3">
+                                <label class="flex items-center gap-3 p-3 border rounded-lg hover:bg-gray-50 cursor-pointer">
+                                    <input type="checkbox" class="w-5 h-5 text-blue-600">
+                                    <span>Facebook / Meta</span>
+                                </label>
+                                <label class="flex items-center gap-3 p-3 border rounded-lg hover:bg-gray-50 cursor-pointer">
+                                    <input type="checkbox" class="w-5 h-5 text-blue-600">
+                                    <span>Instagram</span>
+                                </label>
+                                <label class="flex items-center gap-3 p-3 border rounded-lg hover:bg-gray-50 cursor-pointer">
+                                    <input type="checkbox" class="w-5 h-5 text-blue-600">
+                                    <span>Twitter / X</span>
+                                </label>
+                                <div class="mt-4 p-3 bg-gray-50 rounded-lg">
+                                    <p class="text-sm text-gray-600">
+                                        <i data-lucide="info" class="w-4 h-4 inline mr-1"></i>
+                                        We'll help you set preferences for memorialization vs deletion
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Digital Business -->
+                        <div class="bg-white rounded-xl shadow-lg p-6">
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
+                                    <i data-lucide="briefcase" class="w-6 h-6 text-green-600"></i>
+                                </div>
+                                <h3 class="text-xl font-semibold">Digital Business</h3>
+                            </div>
+                            <div class="space-y-3">
+                                <label class="flex items-center gap-3 p-3 border rounded-lg hover:bg-gray-50 cursor-pointer">
+                                    <input type="checkbox" class="w-5 h-5 text-blue-600">
+                                    <span>Domain names</span>
+                                </label>
+                                <label class="flex items-center gap-3 p-3 border rounded-lg hover:bg-gray-50 cursor-pointer">
+                                    <input type="checkbox" class="w-5 h-5 text-blue-600">
+                                    <span>Online store / ecommerce</span>
+                                </label>
+                                <label class="flex items-center gap-3 p-3 border rounded-lg hover:bg-gray-50 cursor-pointer">
+                                    <input type="checkbox" class="w-5 h-5 text-blue-600">
+                                    <span>SaaS products</span>
+                                </label>
+                                <div class="mt-4 p-3 bg-gray-50 rounded-lg">
+                                    <p class="text-sm text-gray-600">
+                                        <i data-lucide="trending-up" class="w-4 h-4 inline mr-1"></i>
+                                        Digital businesses can be worth significant value
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="text-center mt-8">
+                        <button onclick="showScreen('crypto')" class="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors">
+                            Continue to Crypto Setup <i data-lucide="arrow-right" class="w-4 h-4 inline ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Screen 4: Crypto-Specific Planning -->
+        <div id="crypto" class="screen">
+            <div class="min-h-screen bg-gray-50 py-8">
+                <div class="max-w-4xl mx-auto px-4">
+                    <div class="text-center mb-8">
+                        <h2 class="text-3xl font-bold text-gray-800 mb-2">Crypto Inheritance Setup</h2>
+                        <p class="text-gray-600">Let's make sure your crypto doesn't disappear forever. We'll guide you through secure inheritance planning.</p>
+                        <div class="w-full bg-gray-200 rounded-full h-2 mt-4">
+                            <div class="bg-blue-600 h-2 rounded-full" style="width: 60%"></div>
+                        </div>
+                        <p class="text-sm text-gray-500 mt-2">Step 4 of 6 • About 5 minutes remaining</p>
+                    </div>
+
+                    <div class="bg-red-50 border border-red-200 rounded-lg p-4 mb-6">
+                        <div class="flex items-start gap-3">
+                            <i data-lucide="alert-triangle" class="w-5 h-5 text-red-600 mt-0.5"></i>
+                            <div>
+                                <h4 class="font-semibold text-red-800">Critical: ~20% of Bitcoin is lost forever</h4>
+                                <p class="text-red-700 text-sm">Without proper planning, your crypto could be inaccessible to your family. Let's prevent that.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <!-- Wallet Detection -->
+                        <div class="bg-white rounded-xl shadow-lg p-6">
+                            <h3 class="text-xl font-semibold mb-4 flex items-center gap-2">
+                                <i data-lucide="wallet" class="w-6 h-6 text-orange-600"></i>
+                                Wallet Detection
+                            </h3>
+                            <div class="space-y-4">
+                                <button class="w-full p-4 border-2 border-dashed border-gray-300 rounded-lg hover:border-orange-500 hover:bg-orange-50 transition-colors">
+                                    <i data-lucide="link" class="w-8 h-8 text-gray-400 mx-auto mb-2"></i>
+                                    <div class="text-sm">Connect MetaMask Wallet</div>
+                                </button>
+                                <button class="w-full p-4 border-2 border-dashed border-gray-300 rounded-lg hover:border-blue-500 hover:bg-blue-50 transition-colors">
+                                    <i data-lucide="database" class="w-8 h-8 text-gray-400 mx-auto mb-2"></i>
+                                    <div class="text-sm">Connect Coinbase Account</div>
+                                </button>
+                                <div class="p-3 bg-gray-50 rounded-lg">
+                                    <p class="text-xs text-gray-600">
+                                        <i data-lucide="shield" class="w-3 h-3 inline mr-1"></i>
+                                        We never store your private keys or passwords
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Manual Entry -->
+                        <div class="bg-white rounded-xl shadow-lg p-6">
+                            <h3 class="text-xl font-semibold mb-4 flex items-center gap-2">
+                                <i data-lucide="edit" class="w-6 h-6 text-blue-600"></i>
+                                Manual Entry
+                            </h3>
+                            <div class="space-y-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Cryptocurrency Type</label>
+                                    <select class="w-full px-3 py-2 border rounded-lg">
+                                        <option>Bitcoin (BTC)</option>
+                                        <option>Ethereum (ETH)</option>
+                                        <option>Other</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Wallet Type</label>
+                                    <select class="w-full px-3 py-2 border rounded-lg">
+                                        <option>Hardware Wallet (Ledger, Trezor)</option>
+                                        <option>Software Wallet</option>
+                                        <option>Exchange Account</option>
+                                        <option>Paper Wallet</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Estimated Value (Optional)</label>
+                                    <input type="text" placeholder="$0" class="w-full px-3 py-2 border rounded-lg">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Access Instructions -->
+                        <div class="bg-white rounded-xl shadow-lg p-6 md:col-span-2">
+                            <h3 class="text-xl font-semibold mb-4 flex items-center gap-2">
+                                <i data-lucide="key" class="w-6 h-6 text-purple-600"></i>
+                                Access Instructions for Your Family
+                            </h3>
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Where are your recovery phrases stored?</label>
+                                    <textarea placeholder="Example: Hardware wallet recovery sheet in safe deposit box at Chase Bank, box #1234" class="w-full px-3 py-2 border rounded-lg h-20 text-sm"></textarea>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">How should they access your hardware wallet?</label>
+                                    <textarea placeholder="Example: Ledger device in bedroom safe, PIN is birth year + marriage year" class="w-full px-3 py-2 border rounded-lg h-20 text-sm"></textarea>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Exchange account details</label>
+                                    <textarea placeholder="Example: Coinbase account login saved in 1Password, 2FA backup codes in..." class="w-full px-3 py-2 border rounded-lg h-20 text-sm"></textarea>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Special instructions</label>
+                                    <textarea placeholder="Example: Contact my friend John Doe (expert) at john@email.com for technical help" class="w-full px-3 py-2 border rounded-lg h-20 text-sm"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="mt-6 p-4 bg-blue-50 rounded-lg">
+                                <h4 class="font-semibold text-blue-800 mb-2">💡 Pro Tips for Crypto Inheritance:</h4>
+                                <ul class="text-sm text-blue-700 space-y-1">
+                                    <li>• Test your recovery process with small amounts</li>
+                                    <li>• Store backup information in multiple secure locations</li>
+                                    <li>• Consider multi-signature wallets for large amounts</li>
+                                    <li>• Appoint a tech-savvy digital executor</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="text-center mt-8">
+                        <button onclick="showScreen('beneficiaries')" class="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors">
+                            Continue to Beneficiaries <i data-lucide="arrow-right" class="w-4 h-4 inline ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Screen 5: Beneficiaries -->
+        <div id="beneficiaries" class="screen">
+            <div class="min-h-screen bg-gray-50 py-8">
+                <div class="max-w-4xl mx-auto px-4">
+                    <div class="text-center mb-8">
+                        <h2 class="text-3xl font-bold text-gray-800 mb-2">Who Should Inherit Your Digital Assets?</h2>
+                        <p class="text-gray-600">Let's set up your beneficiaries and digital executor who will manage your digital legacy.</p>
+                        <div class="w-full bg-gray-200 rounded-full h-2 mt-4">
+                            <div class="bg-blue-600 h-2 rounded-full" style="width: 80%"></div>
+                        </div>
+                        <p class="text-sm text-gray-500 mt-2">Step 5 of 6 • About 3 minutes remaining</p>
+                    </div>
+
+                    <div class="space-y-6">
+                        <!-- Primary Beneficiary -->
+                        <div class="bg-white rounded-xl shadow-lg p-6">
+                            <h3 class="text-xl font-semibold mb-4 flex items-center gap-2">
+                                <i data-lucide="heart" class="w-6 h-6 text-red-500"></i>
+                                Primary Beneficiary
+                            </h3>
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
+                                    <input type="text" placeholder="Enter full name" class="w-full px-3 py-2 border rounded-lg">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Relationship</label>
+                                    <select class="w-full px-3 py-2 border rounded-lg">
+                                        <option>Spouse</option>
+                                        <option>Partner</option>
+                                        <option>Child</option>
+                                        <option>Parent</option>
+                                        <option>Sibling</option>
+                                        <option>Friend</option>
+                                        <option>Other</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                                    <input type="email" placeholder="their.email@example.com" class="w-full px-3 py-2 border rounded-lg">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Phone</label>
+                                    <input type="tel" placeholder="(555) 123-4567" class="w-full px-3 py-2 border rounded-lg">
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Percentage of Digital Assets</label>
+                                <div class="flex items-center gap-2">
+                                    <input type="range" min="0" max="100" value="100" class="flex-1">
+                                    <span class="text-lg font-semibold text-blue-600">100%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Digital Executor -->
+                        <div class="bg-white rounded-xl shadow-lg p-6">
+                            <h3 class="text-xl font-semibold mb-4 flex items-center gap-2">
+                                <i data-lucide="user-cog" class="w-6 h-6 text-blue-500"></i>
+                                Digital Executor
+                                <span class="text-sm font-normal text-gray-500">(Person who handles your digital assets)</span>
+                            </h3>
+                            <div class="mb-4 p-3 bg-blue-50 rounded-lg">
+                                <p class="text-sm text-blue-700">
+                                    <i data-lucide="lightbulb" class="w-4 h-4 inline mr-1"></i>
+                                    Your digital executor should be tech-savvy and trustworthy. They'll handle accessing your crypto wallets, social media accounts, and cloud storage according to your wishes.
+                                </p>
+                            </div>
+                            
+                            <div class="space-y-3">
+                                <label class="flex items-center gap-3 p-3 border rounded-lg hover:bg-gray-50 cursor-pointer">
+                                    <input type="radio" name="executor" class="w-4 h-4 text-blue-600">
+                                    <span>Same as primary beneficiary</span>
+                                </label>
+                                <label class="flex items-center gap-3 p-3 border rounded-lg hover:bg-gray-50 cursor-pointer">
+                                    <input type="radio" name="executor" class="w-4 h-4 text-blue-600">
+                                    <span>Different person (recommended for tech expertise)</span>
+                                </label>
+                            </div>
+
+                            <div id="separate-executor" class="mt-4 grid md:grid-cols-2 gap-4" style="display: none;">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Digital Executor Name</label>
+                                    <input type="text" placeholder="Enter full name" class="w-full px-3 py-2 border rounded-lg">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Their Tech Experience</label>
+                                    <select class="w-full px-3 py-2 border rounded-lg">
+                                        <option>Very tech-savvy (developer, IT pro)</option>
+                                        <option>Moderately tech-savvy</option>
+                                        <option>Basic tech skills</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                                    <input type="email" placeholder="their.email@example.com" class="w-full px-3 py-2 border rounded-lg">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Phone</label>
+                                    <input type="tel" placeholder="(555) 123-4567" class="w-full px-3 py-2 border rounded-lg">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Emergency Access -->
+                        <div class="bg-white rounded-xl shadow-lg p-6">
+                            <h3 class="text-xl font-semibold mb-4 flex items-center gap-2">
+                                <i data-lucide="shield-alert" class="w-6 h-6 text-yellow-500"></i>
+                                Emergency Access Settings
+                            </h3>
+                            <div class="space-y-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Waiting Period Before Access</label>
+                                    <select class="w-full px-3 py-2 border rounded-lg">
+                                        <option>7 days (fast access)</option>
+                                        <option>30 days (recommended)</option>
+                                        <option>60 days (more secure)</option>
+                                        <option>90 days (maximum security)</option>
+                                    </select>
+                                    <p class="text-xs text-gray-500 mt-1">Your beneficiaries will be notified, and you can cancel if you're still alive</p>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Verification Method</label>
+                                    <div class="space-y-2">
+                                        <label class="flex items-center gap-2">
+                                            <input type="checkbox" class="w-4 h-4 text-blue-600">
+                                            <span class="text-sm">Require death certificate</span>
+                                        </label>
+                                        <label class="flex items-center gap-2">
+                                            <input type="checkbox" class="w-4 h-4 text-blue-600">
+                                            <span class="text-sm">Require 2 people to confirm</span>
+                                        </label>
+                                        <label class="flex items-center gap-2">
+                                            <input type="checkbox" class="w-4 h-4 text-blue-600">
+                                            <span class="text-sm">Send notification to multiple contacts</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="text-center mt-8">
+                        <button onclick="showScreen('preview')" class="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors">
+                            Review Your Will <i data-lucide="arrow-right" class="w-4 h-4 inline ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Screen 6: Will Preview -->
+        <div id="preview" class="screen">
+            <div class="min-h-screen bg-gray-50 py-8">
+                <div class="max-w-4xl mx-auto px-4">
+                    <div class="text-center mb-8">
+                        <h2 class="text-3xl font-bold text-gray-800 mb-2">Review Your Digital Will</h2>
+                        <p class="text-gray-600">Here's your AI-generated will. You can make changes before finalizing.</p>
+                        <div class="w-full bg-gray-200 rounded-full h-2 mt-4">
+                            <div class="bg-blue-600 h-2 rounded-full" style="width: 95%"></div>
+                        </div>
+                        <p class="text-sm text-gray-500 mt-2">Step 6 of 6 • Almost done!</p>
+                    </div>
+
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <!-- Will Preview -->
+                        <div class="md:col-span-2 bg-white rounded-xl shadow-lg p-6">
+                            <div class="flex items-center justify-between mb-4">
+                                <h3 class="text-xl font-semibold">Last Will and Testament</h3>
+                                <button class="text-blue-600 hover:text-blue-700 text-sm flex items-center gap-1">
+                                    <i data-lucide="edit" class="w-4 h-4"></i>
+                                    Edit
+                                </button>
+                            </div>
+                            
+                            <div class="prose prose-sm max-w-none">
+                                <p class="text-gray-600 mb-4">State of California</p>
+                                
+                                <div class="space-y-4 text-sm">
+                                    <div class="p-3 bg-gray-50 rounded-lg">
+                                        <h4 class="font-semibold text-gray-800">I, [Your Name], a resident of California, being of sound mind and memory, do hereby make, publish, and declare this to be my Last Will and Testament.</h4>
+                                    </div>
+                                    
+                                    <div class="p-3 border-l-4 border-blue-500 bg-blue-50">
+                                        <h5 class="font-semibold text-blue-800">Digital Assets Provisions</h5>
+                                        <p class="text-blue-700 mt-1">I hereby grant my Digital Executor full authority to access, manage, transfer, or delete my digital assets including but not limited to:</p>
+                                        <ul class="list-disc list-inside text-blue-700 mt-2 space-y-1">
+                                            <li>Cryptocurrency wallets and exchange accounts</li>
+                                            <li>Cloud storage accounts (Google Drive, Dropbox, iCloud)</li>
+                                            <li>Social media accounts and profiles</li>
+                                            <li>Digital business assets and domain names</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="p-3 border-l-4 border-green-500 bg-green-50">
+                                        <h5 class="font-semibold text-green-800">Cryptocurrency Specific Instructions</h5>
+                                        <p class="text-green-700 mt-1">My cryptocurrency assets shall be transferred according to the detailed access instructions stored separately with this will. My Digital Executor is authorized to convert these assets to fiat currency if needed for distribution to beneficiaries.</p>
+                                    </div>
+                                    
+                                    <div class="p-3 border-l-4 border-purple-500 bg-purple-50">
+                                        <h5 class="font-semibold text-purple-800">Beneficiary Designations</h5>
+                                        <p class="text-purple-700 mt-1">I give, devise, and bequeath all my digital assets to [Primary Beneficiary Name] (100%).</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-6 flex gap-3">
+                                <button class="flex-1 bg-white border border-gray-300 text-gray-700 py-2 px-4 rounded-lg hover:bg-gray-50 transition-colors">
+                                    <i data-lucide="download" class="w-4 h-4 inline mr-2"></i>
+                                    Download Preview
+                                </button>
+                                <button class="flex-1 bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors">
+                                    <i data-lucide="share" class="w-4 h-4 inline mr-2"></i>
+                                    Share for Review
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Summary -->
+                        <div class="space-y-6">
+                            <div class="bg-white rounded-xl shadow-lg p-6">
+                                <h3 class="text-lg font-semibold mb-4">Summary</h3>
+                                <div class="space-y-3 text-sm">
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-600">Digital Asset Types:</span>
+                                        <span class="font-medium">4</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-600">Beneficiaries:</span>
+                                        <span class="font-medium">1</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-600">Digital Executor:</span>
+                                        <span class="font-medium">✓ Assigned</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-600">State Compliance:</span>
+                                        <span class="font-medium text-green-600">✓ California</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bg-white rounded-xl shadow-lg p-6">
+                                <h3 class="text-lg font-semibold mb-4">What Happens Next?</h3>
+                                <div class="space-y-3 text-sm">
+                                    <div class="flex items-start gap-2">
+                                        <i data-lucide="check-circle" class="w-4 h-4 text-green-500 mt-0.5"></i>
+                                        <span>Your will is generated and legally compliant</span>
+                                    </div>
+                                    <div class="flex items-start gap-2">
+                                        <i data-lucide="check-circle" class="w-4 h-4 text-green-500 mt-0.5"></i>
+                                        <span>Stored securely with AES-256 encryption</span>
+                                    </div>
+                                    <div class="flex items-start gap-2">
+                                        <i data-lucide="check-circle" class="w-4 h-4 text-green-500 mt-0.5"></i>
+                                        <span>Emergency access configured</span>
+                                    </div>
+                                    <div class="flex items-start gap-2">
+                                        <i data-lucide="check-circle" class="w-4 h-4 text-green-500 mt-0.5"></i>
+                                        <span>Beneficiaries will be notified</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bg-gradient-to-r from-green-500 to-blue-600 rounded-xl p-6 text-white">
+                                <h3 class="text-lg font-semibold mb-2">You're Protected! 🎉</h3>
+                                <p class="text-sm opacity-90">Your digital legacy is now secure. Your family will thank you for this.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="text-center mt-8">
+                        <button onclick="showScreen('payment')" class="bg-green-600 text-white px-8 py-4 text-lg rounded-lg hover:bg-green-700 transition-colors">
+                            Secure Your Digital Will - $49 <i data-lucide="arrow-right" class="w-5 h-5 inline ml-2"></i>
+                        </button>
+                        <p class="text-sm text-gray-500 mt-2">30-day money-back guarantee</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Screen 7: Payment -->
+        <div id="payment" class="screen">
+            <div class="min-h-screen bg-gray-50 py-8">
+                <div class="max-w-2xl mx-auto px-4">
+                    <div class="text-center mb-8">
+                        <h2 class="text-3xl font-bold text-gray-800 mb-2">Secure Your Digital Will</h2>
+                        <p class="text-gray-600">Choose your plan and complete your estate planning journey</p>
+                    </div>
+
+                    <!-- Pricing Options -->
+                    <div class="grid md:grid-cols-2 gap-6 mb-8">
+                        <div class="bg-white rounded-xl shadow-lg p-6 border-2 border-transparent hover:border-blue-500 cursor-pointer transition-all">
+                            <div class="text-center">
+                                <h3 class="text-xl font-semibold mb-2">One-Time</h3>
+                                <div class="text-4xl font-bold text-blue-600 mb-4">$49</div>
+                                <ul class="text-sm text-gray-600 space-y-2 mb-6">
+                                    <li>✓ Complete digital will</li>
+                                    <li>✓ Secure encrypted storage</li>
+                                    <li>✓ Emergency access setup</li>
+                                    <li>✓ 30-day money back guarantee</li>
+                                </ul>
+                                <div class="text-xs text-gray-500">vs $1,500+ with lawyers</div>
+                            </div>
+                        </div>
+
+                        <div class="bg-gradient-to-br from-blue-600 to-purple-600 rounded-xl shadow-lg p-6 text-white relative">
+                            <div class="absolute top-2 right-2 bg-yellow-400 text-black text-xs px-2 py-1 rounded-full font-semibold">RECOMMENDED</div>
+                            <div class="text-center">
+                                <h3 class="text-xl font-semibold mb-2">Annual Plan</h3>
+                                <div class="text-4xl font-bold mb-4">$99<span class="text-lg">/year</span></div>
+                                <ul class="text-sm space-y-2 mb-6 opacity-90">
+                                    <li>✓ Everything in One-Time</li>
+                                    <li>✓ Annual will updates</li>
+                                    <li>✓ New features included</li>
+                                    <li>✓ Priority support</li>
+                                    <li>✓ 7-day free trial</li>
+                                </ul>
+                                <div class="text-xs opacity-75">Best for growing digital assets</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Payment Form -->
+                    <div class="bg-white rounded-xl shadow-lg p-6">
+                        <h3 class="text-lg font-semibold mb-4">Payment Information</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
+                                <input type="email" placeholder="your.email@example.com" class="w-full px-3 py-2 border rounded-lg">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Card Information</label>
+                                <div class="p-4 border rounded-lg bg-gray-50">
+                                    <div class="flex items-center gap-2 text-gray-500">
+                                        <i data-lucide="credit-card" class="w-5 h-5"></i>
+                                        <span>Secure payment powered by Stripe</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <input type="checkbox" class="w-4 h-4 text-blue-600">
+                                <span class="text-sm text-gray-600">I agree to the <a href="#" class="text-blue-600 hover:underline">Terms of Service</a> and <a href="#" class="text-blue-600 hover:underline">Privacy Policy</a></span>
+                            </div>
+                        </div>
+
+                        <button class="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition-colors mt-6">
+                            Complete Payment & Secure Will
+                        </button>
+
+                        <div class="text-center mt-4">
+                            <div class="flex items-center justify-center gap-4 text-sm text-gray-500">
+                                <div class="flex items-center gap-1">
+                                    <i data-lucide="shield" class="w-4 h-4"></i>
+                                    <span>SSL Secured</span>
+                                </div>
+                                <div class="flex items-center gap-1">
+                                    <i data-lucide="lock" class="w-4 h-4"></i>
+                                    <span>Bank-Level Encryption</span>
+                                </div>
+                                <div class="flex items-center gap-1">
+                                    <i data-lucide="undo" class="w-4 h-4"></i>
+                                    <span>30-Day Guarantee</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Trust Signals -->
+                    <div class="text-center mt-8 space-y-4">
+                        <div class="text-sm text-gray-600">Trusted by 10,000+ users</div>
+                        <div class="flex justify-center gap-8 items-center opacity-60">
+                            <div class="text-sm">🔒 SOC 2 Compliant</div>
+                            <div class="text-sm">⭐ 4.9/5 Rating</div>
+                            <div class="text-sm">💼 Legal Team Approved</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Screen navigation
+        function showScreen(screenId) {
+            // Hide all screens
+            document.querySelectorAll('.screen').forEach(screen => {
+                screen.classList.remove('active');
+            });
+            
+            // Show selected screen
+            document.getElementById(screenId).classList.add('active');
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+
+        // Demo interactions
+        function showNextQuestion() {
+            // Simulate AI conversation progression
+            const aiContainer = document.querySelector('#onboarding .space-y-6');
+            const newMessage = document.createElement('div');
+            newMessage.className = 'flex items-start gap-4 fade-in';
+            newMessage.innerHTML = `
+                <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                    <i data-lucide="bot" class="w-6 h-6 text-blue-600"></i>
+                </div>
+                <div class="flex-1">
+                    <div class="bg-blue-50 rounded-xl p-4">
+                        <p class="text-gray-800">Great! Now let's discover your digital assets. Do you have any cryptocurrency like Bitcoin or Ethereum?</p>
+                    </div>
+                </div>
+            `;
+            aiContainer.appendChild(newMessage);
+            lucide.createIcons();
+            
+            setTimeout(() => {
+                showScreen('assets');
+            }, 2000);
+        }
+
+        // Add some interactive behaviors
+        document.addEventListener('DOMContentLoaded', function() {
+            // Progress bar animations
+            const progressBars = document.querySelectorAll('.bg-blue-600');
+            progressBars.forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0%';
+                setTimeout(() => {
+                    bar.style.width = width;
+                    bar.style.transition = 'width 1s ease-in-out';
+                }, 500);
+            });
+
+            // Radio button interactions
+            document.querySelectorAll('input[name="executor"]').forEach(radio => {
+                radio.addEventListener('change', function() {
+                    const separateExecutor = document.getElementById('separate-executor');
+                    if (this.value === 'different') {
+                        separateExecutor.style.display = 'grid';
+                    } else {
+                        separateExecutor.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Add hover effects for cards
+        document.querySelectorAll('.hover\\:border-orange-500, .hover\\:border-blue-500').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-2px)';
+                this.style.transition = 'transform 0.2s ease';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body>
+</html>
